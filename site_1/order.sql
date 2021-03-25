@@ -42,7 +42,9 @@ begin
     end if;
 
     
-
+    -- exception
+    --       when no_data_found then
+    --         dbms_output.put_line('no data found');
 
 end;
 /

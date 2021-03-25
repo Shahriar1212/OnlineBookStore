@@ -11,7 +11,7 @@ CREATE TABLE Book
     BookName varchar(500),
     Author varchar(100),
     Lang varchar(50),
-    Quantiti number,
+    Quantity number,
         PRIMARY KEY(BookID)
 );
 

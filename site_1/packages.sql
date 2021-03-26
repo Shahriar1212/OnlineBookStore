@@ -13,32 +13,47 @@ create or replace package server_pack as
 end server_pack;
 /
 
+----------------------------------------------------------------
 create or replace package body server_pack as
     procedure search_book(b_name in varchar, a_name in varchar)
     is
         a book.BookName%type;
         b book.author%type;
         quantity book.quantity%type;
+        total_book_found number;
     begin
-        
+        total_book_found := 0;
         if b_name is not NULL then
-            a := b_name || '%';
+            a := lower(b_name) || '%';
         end if;
 
         if a_name is not NULL then
-            b := a_name || '%';
+            b := lower(a_name) || '%';
         end if;
 
         for R in (select * from AllBooks where LOWER(bookname) LIKE a union select * from AllBooks where LOWER(author) LIKE b) loop
-            DBMS_OUTPUT.PUT_LINE('======================================');
-            DBMS_OUTPUT.PUT_LINE('Book ID     : ' || R.bookID);
-            DBMS_OUTPUT.PUT_LINE('Book Name   : ' || R.bookname);
-            DBMS_OUTPUT.PUT_LINE('Author Name : ' || R.author);
+            DBMS_OUTPUT.PUT_LINE(chr(10) || '===============================================');
+            DBMS_OUTPUT.PUT_LINE(chr(9) || 'Book ID     : ' || R.bookID);
+            DBMS_OUTPUT.PUT_LINE(chr(9) || 'Book Name   : ' || R.bookname);
+            DBMS_OUTPUT.PUT_LINE(chr(9) || 'Author Name : ' || R.author);
             DBMS_OUTPUT.PUT_LINE(chr(13));
+            total_book_found := total_book_found + 1;
         end loop;
-    end;
-    --------------------------------------------------------------
 
+        if total_book_found = 0 then
+            dbms_output.put_line(chr(10) || chr(9)||' No Book Found :-( ');
+        else
+            dbms_output.put_line(chr(9)||' Total ' || total_book_found || ' books found :-) ');
+        end if;
+
+        
+        
+    end;
+
+
+
+
+    --------------------------------------------------------------------------------
     FUNCTION order_book(book_id in book.bookID%type, u_id in Users.UserID%TYPE)
     return number
     is
@@ -50,10 +65,10 @@ create or replace package body server_pack as
 
     begin
 
-        dbms_output.put_line('user id is : ' || u_id);
+        -- dbms_output.put_line('user id is : ' || u_id);
         select count(*) into total_orders from orders;
         total_orders := total_orders + 1;
-        dbms_output.put_line('total orders : ' || total_orders);
+        -- dbms_output.put_line('total orders : ' || total_orders);
         for R in (select * from AllBooks where BookID = book_id) loop
             DBMS_OUTPUT.PUT_LINE('Book ID     : ' || R.bookID);
             DBMS_OUTPUT.PUT_LINE('Book Name   : ' || R.bookname);
@@ -64,11 +79,13 @@ create or replace package body server_pack as
             new_quantity := quantity - 1;
 
             if R.lang = 'English' then
-              update book set quantity = new_quantity where bookID = book_id;
+                update book set quantity = new_quantity where bookID = book_id;
                 insert into orders values(total_orders, u_id);
+                commit;
             elsif R.lang = 'German' then
-              update book@site1 set quantity = new_quantity where bookID = book_id;
+                update book@site1 set quantity = new_quantity where bookID = book_id;
                 insert into orders@site1 values(total_orders, u_id);
+                commit;
             end if;
             
         end loop;
@@ -96,4 +113,3 @@ create or replace package body server_pack as
     
 end server_pack;
 /
-

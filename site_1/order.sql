@@ -78,7 +78,7 @@ begin
     
     exception
           when no_data_found then
-            dbms_output.put_line(chr(10) || chr(9) || 'no data found');
+            dbms_output.put_line(chr(10) || chr(9) || '[!] Warning: Data Not Found');
           when no_username_exception then
             DBMS_OUTPUT.PUT_LINE(chr(10) || chr(9) || '[!] Warning: You did not entered your USERNAME');
           when no_password_exception then

@@ -5,12 +5,13 @@ DROP TABLE Book CASCADE CONSTRAINTS;
 DROP TABLE Users CASCADE CONSTRAINTS;
 DROP TABLE Orders CASCADE CONSTRAINTS;
 
-CREATE TABLE Book
+CREATE TABLE BOOK
 (
     BookID number,
     BookName varchar(500),
     Author varchar(100),
     Lang varchar(50),
+    Price number,
     Quantity number,
         PRIMARY KEY(BookID)
 );
@@ -28,34 +29,35 @@ CREATE TABLE Orders
 (
     OrderID number,
     UserID number,
+    BookID number,
         PRIMARY KEY(OrderID)
 );
 
-INSERT INTO Book VALUES(25, 'Berlin Alexanderplatz', 'Alfred Döblin', 'German', 14);
-INSERT INTO Book VALUES(26, 'The Metamorphosis', 'Franz Kafka', 'German', 10);
-INSERT INTO Book VALUES(27, 'The Tin Drum', 'Günter Grass', 'German', 10);
-INSERT INTO Book VALUES(28, 'Buddenbrooks', 'Thomas Mann', 'German', 10);
-INSERT INTO Book VALUES(29, 'The Sorrows of Young Werther', 'Johann Wolfgang von Goethe', 'German', 10);
-INSERT INTO Book VALUES(30, 'The Magic Mountain', 'Thomas Mann', 'German', 10);
-INSERT INTO Book VALUES(31, 'Faust', 'Johann Wolfgang von Goethe', 'German', 10);
-INSERT INTO Book VALUES(32, 'Steppenwolf', 'Hermann Hesse', 'German', 10);
-INSERT INTO Book VALUES(33, 'The Glass Bead Game', 'Hermann Hesse', 'German', 10);
-INSERT INTO Book VALUES(34, 'Der Richter und sein Henker', 'Friedrich Dürrenmatt', 'German', 10);
-INSERT INTO Book VALUES(35, 'Das siebte Kreuz', 'Anna Seghers', 'German', 10);
-INSERT INTO Book VALUES(36, 'Der Tod in Venedig', 'Thomas Mann', 'German', 10);
-INSERT INTO Book VALUES(37, 'Siddhartha', 'Hermann Hesse', 'German', 10);
-INSERT INTO Book VALUES(38, 'Effi Briest', 'Theodor Fontane', 'German', 10);
-INSERT INTO Book VALUES(39, 'Berlin Alexanderplatz', 'Alfred Döblin', 'German', 10);
-INSERT INTO Book VALUES(40, 'Inkheart', 'Cornelia Funke', 'German', 10);
-INSERT INTO Book VALUES(41, 'Auto-da-Fé', 'Elias Canetti', 'German', 10);
-INSERT INTO Book VALUES(42, 'Mephisto', 'Klaus Mann', 'German', 10);
-INSERT INTO Book VALUES(43, 'Babylon Berlin', 'Volker Kutscher', 'German', 10);
-INSERT INTO Book VALUES(44, 'Visitation', 'Jenny Erpenbeck', 'German', 10);
-INSERT INTO Book VALUES(45, 'The Tin Drum', 'Günter Grass', 'German', 10);
-INSERT INTO Book VALUES(46, 'Malina', 'Ingeborg Bachmann', 'German', 10);
-INSERT INTO Book VALUES(47, 'The Nazi and the Barber', 'Edgar Hilsenrath', 'German', 10);
-INSERT INTO Book VALUES(48, 'Kruso', 'Lutz Seiler', 'German', 10);
-INSERT INTO Book VALUES(49, 'Hooligan', 'Philipp Winkler', 'German', 10);
+INSERT INTO Book VALUES(25, 'Berlin Alexanderplatz', 'Alfred Döblin', 'German', 320, 14);
+INSERT INTO Book VALUES(26, 'The Metamorphosis', 'Franz Kafka', 'German', 320, 10);
+INSERT INTO Book VALUES(27, 'The Tin Drum', 'Günter Grass', 'German', 320, 10);
+INSERT INTO Book VALUES(28, 'Buddenbrooks', 'Thomas Mann', 'German', 220, 10);
+INSERT INTO Book VALUES(29, 'The Sorrows of Young Werther', 'Johann Wolfgang von Goethe', 'German', 340, 10);
+INSERT INTO Book VALUES(30, 'The Magic Mountain', 'Thomas Mann', 'German', 150, 10);
+INSERT INTO Book VALUES(31, 'Faust', 'Johann Wolfgang von Goethe', 'German', 199, 10);
+INSERT INTO Book VALUES(32, 'Steppenwolf', 'Hermann Hesse', 'German', 390, 10);
+INSERT INTO Book VALUES(33, 'The Glass Bead Game', 'Hermann Hesse', 'German', 249, 10);
+INSERT INTO Book VALUES(34, 'Der Richter und sein Henker', 'Friedrich Dürrenmatt', 'German',36, 10);
+INSERT INTO Book VALUES(35, 'Das siebte Kreuz', 'Anna Seghers', 'German', 450, 10);
+INSERT INTO Book VALUES(36, 'Der Tod in Venedig', 'Thomas Mann', 'German', 320, 10);
+INSERT INTO Book VALUES(37, 'Siddhartha', 'Hermann Hesse', 'German', 120, 10);
+INSERT INTO Book VALUES(38, 'Effi Briest', 'Theodor Fontane', 'German', 250, 10);
+INSERT INTO Book VALUES(39, 'Berlin Alexanderplatz', 'Alfred Döblin', 'German',190, 10);
+INSERT INTO Book VALUES(40, 'Inkheart', 'Cornelia Funke', 'German', 160, 10);
+INSERT INTO Book VALUES(41, 'Auto-da-Fé', 'Elias Canetti', 'German', 200, 10);
+INSERT INTO Book VALUES(42, 'Mephisto', 'Klaus Mann', 'German', 300, 10);
+INSERT INTO Book VALUES(43, 'Babylon Berlin', 'Volker Kutscher', 'German', 250, 10);
+INSERT INTO Book VALUES(44, 'Visitation', 'Jenny Erpenbeck', 'German', 255, 10);
+INSERT INTO Book VALUES(45, 'The Tin Drum', 'Günter Grass', 'German', 160, 10);
+INSERT INTO Book VALUES(46, 'Malina', 'Ingeborg Bachmann', 'German', 150, 10);
+INSERT INTO Book VALUES(47, 'The Nazi and the Barber', 'Edgar Hilsenrath', 'German', 190, 10);
+INSERT INTO Book VALUES(48, 'Kruso', 'Lutz Seiler', 'German', 200, 10);
+INSERT INTO Book VALUES(49, 'Hooligan', 'Philipp Winkler', 'German', 320, 10);
 
 
 

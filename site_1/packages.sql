@@ -86,15 +86,29 @@ create or replace package body server_pack as
             new_quantity := quantity - 1;
 
             if R.lang = 'English' then
-                update book set quantity = new_quantity where bookID = book_id;
-                insert into orders values(total_orders, u_id, book_id);
-                is_ordered_successfully := 1;
-                commit;
+                if quantity = 1 then
+                    delete from book where bookID = book_id;
+                    is_ordered_successfully := 1;
+                    commit;
+                else
+                    update book set quantity = new_quantity where bookID = book_id;
+                    insert into orders values(total_orders, u_id, book_id);
+                    is_ordered_successfully := 1;
+                    commit;
+                end if;
+                
             elsif R.lang = 'German' then
-                update book@site2 set quantity = new_quantity where bookID = book_id;
-                insert into orders@site2 values(total_orders, u_id, book_id);
-                is_ordered_successfully := 1;
-                commit;
+                if quantity = 1 then
+                    delete from book@site2 where bookID = book_id;
+                    insert into orders@site2 values(total_orders, u_id, book_id);
+                    is_ordered_successfully := 1;
+                    commit;
+                else
+                    update book@site2 set quantity = new_quantity where bookID = book_id;
+                    insert into orders@site2 values(total_orders, u_id, book_id);
+                    is_ordered_successfully := 1;
+                    commit;
+                end if;
             end if;
             
         end loop;

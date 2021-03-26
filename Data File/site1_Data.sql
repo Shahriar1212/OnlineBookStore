@@ -54,7 +54,7 @@ INSERT INTO Book VALUES(18, 'Mrs Dalloway', 'Virginia Woolf', 'English', 140, 8)
 INSERT INTO Book VALUES(19, 'The Great Gatsby', 'F. Scott Fitzgerald', 'English',160, 8);
 INSERT INTO Book VALUES(20, 'Animal Farm', 'George Orwell', 'English', 150, 8);
 INSERT INTO Book VALUES(21, 'Ulysses', 'James Joyce', 'English', 160, 8);
-INSERT INTO Book VALUES(22, 'Jane Eyre', 'Charlotte Brontë', 'English',220, 8);
+INSERT INTO Book VALUES(22, 'Jane Eyre', 'Charlotte Bronte', 'English',220, 8);
 INSERT INTO Book VALUES(23, 'To Kill a Mockingbird', 'Harper Lee', 'English',255, 8);
 INSERT INTO Book VALUES(24, 'A Passage to India', 'E. M. Forster', 'English', 260, 8);
 

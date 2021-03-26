@@ -3,7 +3,7 @@ SET VERIFY OFF;
 
 -- clear screen;
 
-
+clear screen;
 declare
 
 begin

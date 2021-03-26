@@ -13,3 +13,5 @@ CREATE OR REPLACE VIEW AllOrders AS
 SELECT * FROM Orders 
 UNION 
 SELECT * FROM Orders@site2;
+
+

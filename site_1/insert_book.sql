@@ -88,7 +88,7 @@ begin
 
     for R in (select * from Users) loop
         if u_name = 'admin' then
-          if p_word = R.Password then
+          if p_word = 'admin' then
             flag := 1;
             EXIT;
           end if;

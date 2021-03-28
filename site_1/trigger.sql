@@ -5,7 +5,7 @@ Before Insert
 On Book
 declare
 begin
-    dbms_output.put_line(chr(10) || chr(9) || '[+] Congratulation! You have successfully Inserted new book.');
+    dbms_output.put_line(chr(10) || chr(9) || '[+] New Book Inserted');
 end;
 /
 
@@ -17,6 +17,7 @@ begin
     dbms_output.put_line(chr(10) || chr(9) || '[+] Your book will be delivered very soon');
 end;
 /
+
 
 create or replace trigger delete_trigger1
 Before Delete

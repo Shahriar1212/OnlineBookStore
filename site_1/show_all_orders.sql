@@ -5,16 +5,24 @@ clear screen;
 
 declare
     a users.UserName%type;
+    u_name users.UserName%type;
     b varchar2(50);
     d number;
     e number;
+    u_id number;
 begin
     for R in (select * from allOrders) loop
-        d := R.UserID;
-        e := R.BookID;
-      dbms_output.put_line(R.OrderID || ' --- ' || R.UserID || ' --- ' || R.bookID);
-      select UserName into a from AllUsers where UserID = d union select BookName into b from AllBooks where bookID = e;
-      dbms_output.put_line(a || ' --- ');
+        dbms_output.put_line(R.orderID);
+        u_id := R.userID;
+        for s in (select * from allusers where userID = u_id) loop
+          dbms_output.put('name is ' || s.UserName);
+        end loop;
+        
+        
     end loop;
+
+    exception
+      when others then
+        dbms_output.put_line('exception found');
 end;
 /

@@ -16,6 +16,6 @@ SELECT * FROM Orders@site2;
 
 
 create or replace view show_all_orders as
-select AllOrders.orderid, AllOrders.userid, AllUsers.username, AllBooks.bookname, AllBooks.price from ((AllOrders inner join AllUsers on AllOrders.userid = AllUsers.userid) inner join AllBooks on AllOrders.bookid = AllBooks.bookid);
+select AllOrders.orderid, AllOrders.userid, AllBooks.BookID, AllUsers.username, AllUsers.Email, AllBooks.bookname, AllBooks.Author, AllBooks.Lang, AllBooks.price from ((AllOrders inner join AllUsers on AllOrders.userid = AllUsers.userid) inner join AllBooks on AllOrders.bookid = AllBooks.bookid) order by AllOrders.orderid;
 
 

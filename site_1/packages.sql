@@ -66,7 +66,7 @@ create or replace package body server_pack as
 
         is_ordered_successfully := 0;
         -- dbms_output.put_line('user id is : ' || u_id);
-        select count(*) into total_orders from orders;
+        select count(*) into total_orders from allorders;
         total_orders := total_orders + 1;
 
 

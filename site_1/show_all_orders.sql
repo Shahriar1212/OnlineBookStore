@@ -11,15 +11,13 @@ declare
     e number;
     u_id number;
 begin
-    for R in (select * from allOrders) loop
-        dbms_output.put_line(R.orderID);
-        u_id := R.userID;
-        for s in (select * from allusers where userID = u_id) loop
-          dbms_output.put('name is ' || s.UserName);
+    for R in (select * from show_all_orders) loop
+          if length(R.username) > 7 then
+            dbms_output.put_line(R.orderid || chr(9) || R.username || chr(9) || R.bookname);
+          else
+            dbms_output.put_line(R.orderid || chr(9) ||R.username || chr(9) || chr(9) || R.bookname);
+          end if;
         end loop;
-        
-        
-    end loop;
 
     exception
       when others then

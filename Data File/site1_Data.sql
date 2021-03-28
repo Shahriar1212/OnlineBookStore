@@ -30,6 +30,7 @@ CREATE TABLE Orders
     OrderID number,
     UserID number,
     BookID number,
+    OrderDate Date,
         PRIMARY KEY(OrderID)
 );
 

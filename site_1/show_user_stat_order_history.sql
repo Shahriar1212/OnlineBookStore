@@ -6,7 +6,7 @@ clear screen;
 declare
 
 begin
-    dbms_output.put_line(chr(10) || chr(9) || 'Admin Login Required');
+    dbms_output.put_line(chr(10) || chr(9) || 'Enter Username To Show Order History');
     dbms_output.put_line(chr(10) || chr(9) || 'Fill Out All The Field');
     dbms_output.put_line('================================================================');
 end;
@@ -46,16 +46,11 @@ begin
         dbms_output.put_line(chr(9) || '==============================');
 
     else
-      dbms_output.put_line(chr(10) || chr(9) ||'UserID' || chr(9) ||'Price' || chr(9) || 'Book');
+      dbms_output.put_line(chr(10) || chr(9) ||'UserID' || chr(9) || 'Order Time' || chr(9) || chr(9) ||'Price' || chr(9) || 'Book');
       dbms_output.put_line('---------------------------------------------------------------------------');
       for R in (select * from show_all_orders where username = u_name) loop
-        if length(R.username) > 7 then
-          dbms_output.put_line(chr(9) ||R.userid || chr(9) || R.Price || chr(9) || R.bookname);
+          dbms_output.put_line(chr(9) ||R.userid || chr(9) || R.OrderTime || chr(9) || R.Price || chr(9) || R.bookname);
           total_amount_spent := total_amount_spent + R.Price;
-        else
-          dbms_output.put_line(chr(9) ||R.userid || chr(9) ||R.Price || chr(9) || chr(9) || R.BookName);
-          total_amount_spent := total_amount_spent + R.Price;
-        end if;
       end loop;
 
       dbms_output.put_line(chr(10) || chr(9) ||'You have spent ' || total_amount_spent || ' TAKA');

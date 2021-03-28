@@ -55,7 +55,7 @@ begin
 
     else
       dbms_output.put_line(chr(10) || chr(9) ||'UserID' || chr(9) ||'UserName' || chr(9) || 'Total Amount');
-      dbms_output.put_line('---------------------------------------------------------------------------');
+      dbms_output.put_line('-------------------------------------------------');
       for R in (select * from show_user_stat_total_price) loop
         if length(R.username) > 7 then
           dbms_output.put_line(chr(9) ||R.userid || chr(9) || R.username || chr(9) || R.TotalPrice);

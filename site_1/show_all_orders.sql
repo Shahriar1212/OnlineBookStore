@@ -54,13 +54,13 @@ begin
         dbms_output.put_line(chr(9) || '==============================');
 
     else
-      dbms_output.put_line(chr(10) || chr(9) ||'OrderID' || chr(9) ||'Username' || chr(9) || 'Book Name');
+      dbms_output.put_line(chr(10) || chr(9) ||'OrderID' || chr(9) || 'Order Time' || chr(9) || chr(9) ||'Username' || chr(9) || 'Book Name');
       dbms_output.put_line('---------------------------------------------------------------------------');
       for R in (select * from show_all_orders) loop
         if length(R.username) > 7 then
-          dbms_output.put_line(chr(9) ||R.orderid || chr(9) || R.username || chr(9) || R.bookname);
+          dbms_output.put_line(chr(9) ||R.orderid || chr(9) || R.OrderTime || chr(9) || R.username || chr(9) || R.bookname);
         else
-          dbms_output.put_line(chr(9) ||R.orderid || chr(9) ||R.username || chr(9) || chr(9) || R.bookname);
+          dbms_output.put_line(chr(9) ||R.orderid || chr(9) || R.OrderTime || chr(9) ||R.username || chr(9) || chr(9) || R.bookname);
         end if;
       end loop;
     end if;

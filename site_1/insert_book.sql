@@ -137,3 +137,5 @@ begin
           dbms_output.put_line(chr(10) || chr(9) || '[!] Warning: You did not entered BOOK Quantity');
 end;
 /
+
+commit;

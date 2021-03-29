@@ -137,3 +137,5 @@ create or replace package body server_pack as
     
 end server_pack;
 /
+
+commit;

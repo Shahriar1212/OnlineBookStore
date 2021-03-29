@@ -39,7 +39,7 @@ begin
 
     flag        := 0;
 
-    for R in (select * from Users) loop
+    for R in (select * from AllUsers) loop
         if u_name = 'admin' then
           if p_word = 'admin' then
             flag := 1;

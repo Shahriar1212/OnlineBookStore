@@ -86,7 +86,7 @@ begin
 
     flag        := 0;
 
-    for R in (select * from Users) loop
+    for R in (select * from Allusers) loop
         if u_name = 'admin' then
           if p_word = 'admin' then
             flag := 1;
@@ -107,10 +107,12 @@ begin
       new_book_id := max_book_id + 1;
       if lower(lang) = 'english' then
         INSERT INTO Book@site1 VALUES(new_book_id, book_name, author_name, initcap(lang), price, quantity);
+        commit;
         dbms_output.put_line(chr(10) || chr(9) || '[+] Congratulation! You have successfully Inserted new book.');
         dbms_output.put_line(chr(10));
       else
         INSERT INTO Book VALUES(new_book_id, book_name, author_name, initcap(lang), price, quantity);
+        commit;
         dbms_output.put_line(chr(10) || chr(9) || '[+] Congratulation! You have successfully Inserted new book.');
         dbms_output.put_line(chr(10));
       end if;
